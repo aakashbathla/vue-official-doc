@@ -11,15 +11,25 @@
     <div id="app-6">
       <p>{{message}}</p>
       <input type="text" v-model="message" />
-      <todo-item />
+      <todo-item
+        v-for="item in groceryList"
+        v-bind:todo="item"
+        v-bind:key="item.id"
+      ></todo-item>
     </div>
     <script>
       Vue.component("todo-item", {
-        template: "<li>This is a todo</li>",
+        props: ["todo"],
+        template: "<li>{{todo.text}}</li>",
       });
       var app6 = new Vue({
         el: "#app-6",
         data: {
+          groceryList: [
+            { id: 1, text: "purchase water bottle" },
+            { id: 2, text: "milk" },
+            { id: 3, text: "corn flakes" },
+          ],
           message: "Hello Vue!",
         },
       });
