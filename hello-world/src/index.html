@@ -20,6 +20,11 @@
         },
       });
       vm.b = "mani";
+      console.log(vm.$el);
+      console.log(vm.$el);
+      vm.$watch("a", function(newValue, oldValue) {
+        // This callback will be called when `vm.a` changes
+      });
     </script>
   </body>
 </html>
