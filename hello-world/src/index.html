@@ -8,31 +8,18 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   <body>
-    <div id="app-6">
-      <p>{{message}}</p>
-      <input type="text" v-model="message" />
-      <todo-item
-        v-for="item in groceryList"
-        v-bind:todo="item"
-        v-bind:key="item.id"
-      ></todo-item>
+    <div id="vm">
+      {{a}} {{b}}
     </div>
     <script>
-      Vue.component("todo-item", {
-        props: ["todo"],
-        template: "<li>{{todo.text}}</li>",
-      });
-      var app6 = new Vue({
-        el: "#app-6",
+      var vm = new Vue({
+        el: "#vm",
         data: {
-          groceryList: [
-            { id: 1, text: "purchase water bottle" },
-            { id: 2, text: "milk" },
-            { id: 3, text: "corn flakes" },
-          ],
-          message: "Hello Vue!",
+          a: "2",
+          b: "", //always initialize them empty
         },
       });
+      vm.b = "mani";
     </script>
   </body>
 </html>
