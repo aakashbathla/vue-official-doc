@@ -8,24 +8,29 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   <body>
+    <div id="vm">
+      {{property}}
+    </div>
     <script>
       // don't use arrow function in vue.js
+
       var vm = new Vue({
-        data: {
-          a: 1,
+        el: "#vm",
+        data() {
+          return {
+            property: "Example property.",
+          };
         },
-        beforeCreate() {
+        computed: {
+          propertyComputed() {
+            return this.property;
+          },
+        },
+        created() {
           console.log(
-            "At this point, events and lifecycle have been initialized."
+            "At this point, this.property is now reactive and propertyComputed will update."
           );
-        },
-        created: function() {
-          // 'this' points to the vm instance
-          console.log("created: a is: " + this.a);
-        },
-        mounted: function() {
-          // 'this' points to the vm instance
-          console.log("mounted: a is: " + this.a);
+          this.property = "Example property updated.";
         },
       });
     </script>
