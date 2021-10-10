@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="vm">
-      <span v-once>{{property}}</span>
+      <span v-html="rawHtml"></span>
     </div>
 
     <script>
@@ -20,19 +20,8 @@
         el: "#vm",
         data() {
           return {
-            property: "Example property.",
+            rawHtml: "<span style='color:red'>This should be red</span>",
           };
-        },
-        computed: {
-          propertyComputed() {
-            return this.property;
-          },
-        },
-        created() {
-          console.log(
-            "At this point, this.property is now reactive and propertyComputed will update."
-          );
-          this.property = "Example property updated.";
         },
       });
     </script>
