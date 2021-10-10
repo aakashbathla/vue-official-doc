@@ -9,10 +9,12 @@
   </head>
   <body>
     <div id="vm">
-      {{property}}
+      <span v-once>{{property}}</span>
     </div>
+
     <script>
       // don't use arrow function in vue.js
+      // v-once is used to not re-render the component
 
       var vm = new Vue({
         el: "#vm",
